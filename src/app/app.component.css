@@ -1,0 +1,36 @@
+app-sidebar {
+  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-left: 3%;
+  z-index: 99999;
+}
+
+.testcss {
+  position: absolute;
+  top: 9%;
+  left: 19%;
+  padding-left: 5px;
+  width: 81%;
+
+
+}
+
+
+app-navbar {
+  width: 92%;
+  height: 60px;
+  padding-left: 9%;
+  position: fixed;
+  z-index: 999;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+} 
+
+.right {
+  float: right;
+}
+
+

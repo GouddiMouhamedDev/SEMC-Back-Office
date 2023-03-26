@@ -1,0 +1,9 @@
+html {
+    background-color: #2B2B2B;
+    color: #fff;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: sticky;
+    z-index: 8;
+    
+  }

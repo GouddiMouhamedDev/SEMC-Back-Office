@@ -1,0 +1,58 @@
+
+
+
+<table class="table table-hover table-striped custom-table"  >
+
+    <thead class="sticky-thead  ">
+      
+      <tr> 
+        
+        <th>ID</th>
+        <th>Nom</th>
+        <th>QNT</th>
+        <th>Dépôt</th>
+        <th>TVA</th>
+        <th>Prix de vend HT</th>
+        <th>Prix de vend TTC</th>
+        <th>Prix d'achat HT</th>
+        <th>Prix d'achat TTC</th>
+        <th> <button class="pointer btn btn-primary button-hover input" (click)="openAddDialog()">ajouter</button>
+          <select [(ngModel)]="selectedOption" (change)="filterData(selectedOption,searchText)" class=" pointer btn btn-primary input"name="" style="width: 100px;">
+            <option value="id">ID</option>
+            <option value="Nom" selected>Nom</option>
+            <option value="Qnt">QNT</option>
+            <option value="TVA">TVA</option>
+            <option value="PrixVendHT">P.HT</option>
+            <option value="PrixVendTTC">P.TTC</option>
+            <option value="PrixAchatHT">P.HT</option>
+            <option value="PrixAchatTTC">P.TTC</option>
+          
+          </select> 
+          <input   value="" name="search"placeholder="Recherche" class="btn btn-primary blue-placeholder input" type="text" name="" 
+            id="search" style="width: 110px;"[(ngModel)]="searchText" (input)="filterData(selectedOption,searchText)">
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of databs" >
+        <td><b>{{ item.id }}</b></td>
+        <td><b>{{ item.Nom }}</b></td>
+        <td><b>{{ item.Qnt }}</b></td>
+        <td><b>{{ item.depot }}</b></td>
+        <td><b>{{ item.TVA }}%</b></td>
+        <td><b>{{ item.PrixVendHT}}&nbsp;DT</b></td>
+        <td><b>{{ item.PrixVendTTC}}&nbsp;DT</b></td>
+        <td><b>{{ item.PrixAchatHT}}&nbsp;DT</b></td>
+        <td><b>{{ item.PrixAchatTTC}}&nbsp;DT</b></td>
+        <td>
+          <img src="assets/img/produits/{{item.img }}.png" alt="Image" onerror="this.onerror=null;this.src='assets/img/defaut.png';"width="100" height="100">
+          <img src="" alt="" >
+          <button class="pointer btn btn-warning input" type="button" (click)="openEditDialog(item)" >Modifier</button>
+          <button class="pointer btn btn-danger input" type="button" (click)="openDeleteDialog(item)">Suprimer</button>
+          
+        </td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
