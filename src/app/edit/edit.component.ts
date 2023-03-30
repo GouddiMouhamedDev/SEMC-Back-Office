@@ -18,9 +18,8 @@ export class EditComponent {
 
   onProductsEdit(prod: any) {
     this.http.patch(`http://localhost:3000/product/${this.data.id}`, prod).subscribe(
-      () => {
-        console.log("Produit modifier avec succès.");
-        this.closeadd(true);
+      (response) => {
+        this.closeadd(response);
       },
       error => {
         console.log("Une erreur s'est produite lors de la modification du produit : ", error);
@@ -29,7 +28,7 @@ export class EditComponent {
     );
   }
 
-  closeadd(value: boolean): void {
+  closeadd(value: any): void {
     this.dialogRef.close(value);
   }
 }

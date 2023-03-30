@@ -15,7 +15,7 @@ import { DataService } from './list-desproduits.service';
   styleUrls: ['./list-des-produits.component.css']
 })
 export class ListDesProduitsComponent implements OnInit {
-  databs: any[] | undefined;
+  databs: any[] = [];
   modalRef: BsModalRef | undefined;
   modalService: any;
   allData: any;
@@ -31,16 +31,18 @@ export class ListDesProduitsComponent implements OnInit {
 
   ngOnInit() {
     this.selectedOption = "Nom";
-    this.dataService.getData().subscribe(data => {
-
-      this.databs = data as [];
-      this.constdatabs = data as [];
-
-    });
+    this.getProduit();
 
 
   }
+  getProduit() {
+    this.dataService.getData().subscribe((data:any ) => {
 
+      this.databs = data;
+      this.constdatabs = data as [];
+
+    });
+  }
 
   openDeleteDialog(datas: any): void {
 
@@ -65,9 +67,19 @@ export class ListDesProduitsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => { if (result) { this.ngOnInit() } });
     }
   openEditDialog(datas: any) {
-    const dialogRef = this.dialog.open(EditComponent,{data: datas});
+    let produit = {...datas};
 
-    dialogRef.afterClosed().subscribe((result: any) => { if (result) { this.ngOnInit() } });
+    const dialogRef = this.dialog.open(EditComponent,{data: produit});
+
+    dialogRef.afterClosed().subscribe((result: any) => { 
+      if (result) {
+
+        let index = this.databs?.findIndex((item: any) => item.id == result.id);
+        
+        if (index > -1)
+          this.databs[index] = result;
+        
+    } });
   }
   filterData(selectedOption: any, searchText: string) {
     searchText = searchText.toLowerCase();
