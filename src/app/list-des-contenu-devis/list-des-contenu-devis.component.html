@@ -5,9 +5,12 @@
         <tr>
 
             <th>Num Devis</th>
-            <th>Date</th>
             <th>ID Clien</th>
-            <th>MtTotalTTC</th> 
+            <th>NomProduct</th>
+            <th>Qnt</th>
+            <th>PrixUnitTTC</th>
+            <th>PrixTotalTTC</th>
+            <th>TVA</th>
             <th> <button class="pointer btn btn-primary button-hover input">ajouter</button>
                 <select class=" pointer btn btn-primary input" name="" style="width: 100px;">
                     <option value="">ID</option>
@@ -21,12 +24,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of constDataDevis">
+        <tr *ngFor="let item of constDataContDevis">
             <td><b>{{ item.NumDevis}}</b></td>
-            <td><b>{{ item.dateDevis}}</b></td>
-            <td><b>{{ item.idclien}}</b></td>
-            <td><b>{{getMtTotalTTC(item.NumDevis)}}</b></td>
-            
+            <td><b>{{ item.idClients}}</b></td>
+            <td><b>{{ item.NomProduct}}</b></td>
+            <td><b>{{ item.Qnt}}</b></td>
+            <td><b>{{ item.PrixUnitTTC}}</b></td>
+            <td><b>{{ item.PrixTotalTTC}}</b></td>
+            <td><b>{{ item.TVA}}</b></td>
+
+
             <td>
                 <button class="pointer btn btn-success input" type="button">Modifier</button>
                 <button class="pointer btn btn-danger input" type="button">Suprimer</button>

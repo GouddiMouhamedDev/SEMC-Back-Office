@@ -1,5 +1,39 @@
 
+table.custom-table th,
+table.custom-table td {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  font-size: 12px;
   
-
   
+}
 
+table.custom-table th {
+  background-color: #ddd;
+}
+
+
+.input {
+  margin-right: 2px; 
+}
+
+.sticky-thead {
+  position: sticky;
+  top: 61px; /* hauteur de votre barre de navigation */
+  background-color: #fff;
+  z-index: 7;
+
+}
+.custom-table tbody {
+  overflow-y: auto;
+  max-height: calc(100vh - 60px); /* hauteur de la fenêtre moins la hauteur de la barre de navigation */
+}
+
+.blue-placeholder::placeholder {
+  color: #1d62f0;
+}
+
+.pointer {
+  cursor: pointer!important;
+}

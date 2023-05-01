@@ -7,16 +7,19 @@ import { ListDesProduitsComponent } from './list-des-produits/list-des-produits.
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ListDesDevisComponent } from './list-des-devis/list-des-devis.component';
+import { ListDesContenuDevisComponent } from './list-des-contenu-devis/list-des-contenu-devis.component';
 
 
 
 const routes: Routes = [
   { path: 'gps', component:GpsViewComponent  },
   { path:'', component:IndexComponent},
-  { path:'list',component:ListDesProduitsComponent},
+  { path:'listDesProduits',component:ListDesProduitsComponent},
   { path:'login',component:LoginComponent},
   { path:'register',component:RegisterComponent},
-  {path:'devis',component:ListDesDevisComponent}
+  {path:'devis',component:ListDesDevisComponent},
+  {path:'contenudevis',component:ListDesContenuDevisComponent}
+
 ];
 
 @NgModule({
