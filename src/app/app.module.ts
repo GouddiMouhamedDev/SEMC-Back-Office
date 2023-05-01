@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EditComponent } from './edit/edit.component';
 import { RegisterokComponent } from './registerok/registerok.component';
+import { ListDesDevisComponent } from './list-des-devis/list-des-devis.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterokComponent } from './registerok/registerok.component';
     LoginComponent,
     RegisterComponent,
     EditComponent,
-    RegisterokComponent
+    RegisterokComponent,
+    ListDesDevisComponent
     
     
  
