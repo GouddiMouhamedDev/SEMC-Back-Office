@@ -19,6 +19,7 @@ import { EditComponent } from './edit/edit.component';
 import { RegisterokComponent } from './registerok/registerok.component';
 import { ListDesDevisComponent } from './list-des-devis/list-des-devis.component';
 import { ListDesContenuDevisComponent } from './list-des-contenu-devis/list-des-contenu-devis.component';
+import { AddDevisComponent } from './add-devis/add-devis.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ListDesContenuDevisComponent } from './list-des-contenu-devis/list-des-
     EditComponent,
     RegisterokComponent,
     ListDesDevisComponent,
-    ListDesContenuDevisComponent
+    ListDesContenuDevisComponent,
+    AddDevisComponent
     
     
  
