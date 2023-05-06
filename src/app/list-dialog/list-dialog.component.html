@@ -1,0 +1,30 @@
+<table class="table table-hover table-striped custom-table">
+
+    <thead class="sticky-thead  ">
+
+        <tr>
+
+
+            <th *ngFor="let Propriete of Proprietes">{{ Propriete }}</th>
+
+
+            <th>
+                <select [(ngModel)]="selectedOption" (change)="filterData(selectedOption,searchText)"
+                    class=" pointer btn btn-primary input" name="" style="width: 100px;">
+                    <option *ngFor="let Propriete of Proprietes" >{{ Propriete }}</option>
+                </select>
+                <input value="" name="search" placeholder="Recherche" class="btn btn-primary blue-placeholder input"
+                    type="text" name="" id="search" style="width: 110px;" [(ngModel)]="searchText"
+                    (input)="filterData(selectedOption,searchText)">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let objet of databs">
+            <td *ngFor="let Propriete of Proprietes">{{ objet[Propriete] }}</td>
+
+            <td> <mat-icon (click)="closeDialog(objet)">save_alt</mat-icon></td>
+        </tr>
+    </tbody>
+</table>

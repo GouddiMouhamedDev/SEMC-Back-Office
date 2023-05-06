@@ -4,34 +4,26 @@
 
         <tr>
 
-            <th>Num Devis</th>
-            <th>ID Clien</th>
-            <th>NomProduct</th>
-            <th>Qnt</th>
-            <th>PrixUnitTTC</th>
-            <th>PrixTotalTTC</th>
-            <th>TVA</th>
-            <th> <button class="pointer btn btn-primary button-hover input">ajouter</button>
-                <select class=" pointer btn btn-primary input" name="" style="width: 100px;">
-                    <option value="">ID</option>
-                    <option value="" selected>Num Devis</option>
-                    <option value="">ID Clien</option>
-                    <option value="">Date</option>
+            <th *ngFor="let Propriete of Proprietes">{{ Propriete }}</th>
+
+
+            <th> <button class="pointer btn btn-primary button-hover input" routerLink="/adddevis">ajouter</button>
+
+
+                <select [(ngModel)]="selectedOption" (change)="filterData(selectedOption,searchText)"
+                    class=" pointer btn btn-primary input" name="" style="width: 100px;">
+                    <option *ngFor="let Propriete of Proprietes">{{ Propriete }}</option>
                 </select>
+                
                 <input value="" name="search" placeholder="Recherche" class="btn btn-primary blue-placeholder input"
-                    type="text" name="" id="search" style="width: 110px;">
+                    [(ngModel)]="searchText" (input)="filterData(selectedOption,searchText)" type="text" name=""
+                    id="search" style="width: 110px;">
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of constDataContDevis">
-            <td><b>{{ item.NumDevis}}</b></td>
-            <td><b>{{ item.idClients}}</b></td>
-            <td><b>{{ item.NomProduct}}</b></td>
-            <td><b>{{ item.Qnt}}</b></td>
-            <td><b>{{ item.PrixUnitTTC}}</b></td>
-            <td><b>{{ item.PrixTotalTTC}}</b></td>
-            <td><b>{{ item.TVA}}</b></td>
+        <tr *ngFor="let objet of databs">
+            <td *ngFor="let Propriete of Proprietes">{{ objet[Propriete] }}</td>
 
 
             <td>

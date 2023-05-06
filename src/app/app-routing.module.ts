@@ -8,24 +8,26 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ListDesDevisComponent } from './list-des-devis/list-des-devis.component';
 import { ListDesContenuDevisComponent } from './list-des-contenu-devis/list-des-contenu-devis.component';
+import { AddDevisComponent } from './add-devis/add-devis.component';
 
 
 
 const routes: Routes = [
-  { path: 'gps', component:GpsViewComponent  },
-  { path:'', component:IndexComponent},
-  { path:'listDesProduits',component:ListDesProduitsComponent},
-  { path:'login',component:LoginComponent},
-  { path:'register',component:RegisterComponent},
-  {path:'devis',component:ListDesDevisComponent},
-  {path:'contenudevis',component:ListDesContenuDevisComponent}
+  { path: 'gps', component: GpsViewComponent },
+  { path: '', component: IndexComponent },
+  { path: 'listDesProduits', component: ListDesProduitsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'devis', component: ListDesDevisComponent },
+  { path: 'contenudevis', component: ListDesContenuDevisComponent },
+  { path: 'adddevis', component: AddDevisComponent }
 
 ];
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes)],
-  exports: [CommonModule,RouterModule]
+  exports: [CommonModule, RouterModule]
 })
 export class AppRoutingModule { }
 

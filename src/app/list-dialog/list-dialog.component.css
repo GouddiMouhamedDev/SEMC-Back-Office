@@ -1,0 +1,50 @@
+.mat-icon:hover {
+    background-color: rgba(223, 15, 15, 0.04);
+    /* Couleur de fond au survol */
+    cursor: pointer;
+    /* Curseur pointer au survol */
+    transition: transform 0.3s ease-in-out; /* Ajout d'une transition fluide pour l'animation */
+    transform: scale(1.1); /* Agrandissement de l'élément au survol */
+
+}
+
+table.custom-table th,
+table.custom-table td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    font-size: 12px;
+
+
+}
+
+table.custom-table th {
+    background-color: #ddd;
+}
+
+
+.input {
+    margin-right: 2px;
+}
+
+.sticky-thead {
+    position: sticky;
+    /* hauteur de votre barre de navigation */
+    background-color: #fff;
+    z-index: 7;
+
+}
+
+.custom-table tbody {
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+    /* hauteur de la fenêtre moins la hauteur de la barre de navigation */
+}
+
+.blue-placeholder::placeholder {
+    color: #1d62f0;
+}
+
+.pointer {
+    cursor: pointer !important;
+}

@@ -19,7 +19,7 @@ export class AddComponent {
 
     this.http.post('http://localhost:3000/createproduct', prod).subscribe(
   () => {
-    console.log("Produit créé avec succès.");
+    
     this.closeadd(true);
   },
   error => {

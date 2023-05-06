@@ -1,1 +1,108 @@
-<p>add-devis works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+    <!--for dev -->
+
+
+    <form action="" style="margin-top: 20px;">
+        <button style="float: right;" class="pointer btn btn-info" type="button">Valider</button>
+
+        <table>
+            <tr>
+                <td><button class="pointer btn btn-primary" type="button"
+                        (click)="openListDialogComponent(this.mapDataClients,'clients')">
+                        selectioné un clien</button></td>
+                <td><mat-card>Code: {{IdClientcart}}</mat-card><br><mat-card>Nom: {{NomClient}}</mat-card></td>
+                <td><mat-card>Solde: {{Solde}}</mat-card><br><mat-card>Adresse: {{Adresse}}</mat-card></td>
+
+                <td><mat-card>Tel: {{NumClient}}</mat-card> <br><mat-card>Mat: {{Mat}}</mat-card></td>
+
+
+            </tr>
+
+            <tr>
+                <td>
+                    <input id="input10" class="pointer btn btn-primary" name="dateinput" matInput
+                        [matDatepicker]="picker" [(ngModel)]="selectedDate" placeholder="{{selectedDate}}">
+                    <mat-datepicker #picker></mat-datepicker>
+                </td>
+                <td> <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle> </td>
+                <td>
+                    <input type="text" class="pointer btn btn-primary" placeholder="destination" name="" id="">
+                </td>
+                <td>
+                    <input type="text" class="pointer btn btn-primary" placeholder="vehicule" name="" id="">
+                </td>
+                <td>
+                    <input type="text" class="pointer btn btn-primary" placeholder="chaffeur" name="" id="">
+                </td>
+            </tr>
+
+        </table>
+
+
+
+        <table class="table table-hover table-striped custom-table">
+
+            <thead class="sticky-thead  ">
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>QNT</th>
+                    <th>Dépôt</th>
+                    <th>TVA</th>
+                    <th>Prix de vend HT</th>
+                    <th>Prix de vend TTC</th>
+
+                    <th>img</th>
+                    <th> <button class="pointer btn btn-primary button-hover input"
+                            (click)="openListDialogComponent(this.mapDataProduits,'produits')">ajouter</button>
+
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <td><b>1</b></td>
+                <td><b>brique de 06</b></td>
+                <td><b> 1000</b></td>
+                <td><b>manchar</b></td>
+                <td><b> 19 </b></td>
+                <td><b>150&nbsp;DT</b></td>
+                <td><b>200&nbsp;DT</b></td>
+
+                <td>
+                    <img src="" alt="Image" onerror="this.onerror=null;this.src='assets/img/defaut.png';" width="100"
+                        height="100">
+                    <img src="" alt="">
+                </td>
+                <td>
+                    <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
+                        class="pointer btn btn-warning input" type="button">Modifier</button>
+                    <button _ngcontent-rke-c49="" type="button" class="pointer btn btn-default input"
+                        style=" width: 84px;  padding-right: 5px;padding-left: 4px;">Historique</button>
+                    <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
+                        class="pointer btn btn-danger input" type="button">Suprimer</button>
+                </td>
+
+
+
+            </tbody>
+        </table>
+
+    </form>
+
+
+
+</body>
+
+</html>
