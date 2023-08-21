@@ -62,7 +62,7 @@
                     <th>TVA</th>
                     <th>Prix de vend HT</th>
                     <th>Prix de vend TTC</th>
-
+                    <th>total</th>
                     <th>img</th>
                     <th> <button class="pointer btn btn-primary button-hover input"
                             (click)="openListDialogComponent(this.mapDataProduits,'produits')">ajouter</button>
@@ -72,29 +72,29 @@
                 </tr>
             </thead>
             <tbody>
-                <td><b>1</b></td>
-                <td><b>brique de 06</b></td>
-                <td><b> 1000</b></td>
-                <td><b>manchar</b></td>
-                <td><b> 19 </b></td>
-                <td><b>150&nbsp;DT</b></td>
-                <td><b>200&nbsp;DT</b></td>
+                <tr *ngFor="let ligne of tableauDonnees">
+                    <td>{{ ligne.id }}</td>
+                    <td>{{ ligne.nom }}</td>
+                    <td>{{ ligne.qnt }}</td>
+                    <td>{{ ligne.depot }}</td>
+                    <td>{{ ligne.tva }}</td>
+                    <td>{{ ligne.prixVendHT }}</td>
+                    <td>{{ ligne.prixVendTTC }}</td>
+                    <td>{{ ligne.total }}</td> 
+                    <td>{{ligne.qnt}}</td>
+                    <td> <img src="assets/img/produits/{{ligne.img }}.png" alt="Image"
+                            onerror="this.onerror=null;this.src='assets/img/defaut.png';" width="100" height="100"></td>
 
-                <td>
-                    <img src="" alt="Image" onerror="this.onerror=null;this.src='assets/img/defaut.png';" width="100"
-                        height="100">
-                    <img src="" alt="">
-                </td>
-                <td>
-                    <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
-                        class="pointer btn btn-warning input" type="button">Modifier</button>
-                    <button _ngcontent-rke-c49="" type="button" class="pointer btn btn-default input"
-                        style=" width: 84px;  padding-right: 5px;padding-left: 4px;">Historique</button>
-                    <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
-                        class="pointer btn btn-danger input" type="button">Suprimer</button>
-                </td>
+                    <td>
+                        <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
+                            class="pointer btn btn-warning input" type="button">Modifier</button>
+                        <button _ngcontent-rke-c49="" type="button" class="pointer btn btn-default input"
+                            style=" width: 84px;  padding-right: 5px;padding-left: 4px;">Historique</button>
+                        <button style=" width: 84px;  padding-right: 5px;padding-left: 4px;"
+                            class="pointer btn btn-danger input" type="button">Suprimer</button>
+                    </td>
 
-
+                </tr>
 
             </tbody>
         </table>

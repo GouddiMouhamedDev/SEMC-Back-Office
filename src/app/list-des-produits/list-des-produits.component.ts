@@ -5,7 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AddComponent } from '../add/add.component';
 import { DeleteComponent } from '../delete/delete.component';
 import { EditComponent } from '../edit/edit.component';
-import { DataService } from './list-desproduits.service';
+import { ProduitService } from '../Services/produit.service';
 
 
 
@@ -18,29 +18,16 @@ export class ListDesProduitsComponent implements OnInit {
   databs: any[] = [];
   modalRef: BsModalRef | undefined;
   modalService: any;
-  allData: any;
-  selectedOption: any;
-  constdatabs: any;
-  searchText: string = '';
-
-
-
-
-  constructor(private dataService: DataService, private dialog: MatDialog) { }
-
+  filtredData: any[] = [] || undefined;
+  constructor(private dataService: ProduitService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.selectedOption = "Nom";
     this.getProduit();
-
-
   }
   getProduit() {
     this.dataService.getData().subscribe((data: any) => {
-
       this.databs = data;
-      this.constdatabs = data as [];
-
+      this.filtredData = data;
     });
   }
 
@@ -50,9 +37,12 @@ export class ListDesProduitsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
+        
         this.dataService.delete(datas.id).subscribe(() => {
           if (this.databs) {
-            this.databs = this.databs.filter((obj: { id: any; }) => obj.id !== datas.id);
+            
+            this.filtredData = this.databs.filter((obj: { id: any; }) => obj.id !== datas.id);
+            
           }
         });
       }
@@ -83,32 +73,38 @@ export class ListDesProduitsComponent implements OnInit {
     });
   }
 
-  filterData(selectedOption: any, searchText: string) {
-    const lowerCaseSearchText = searchText.toLowerCase();
-    this.databs = this.constdatabs.filter((obj: any) => {
-      for (const key in obj) {
-        const lowerCaseValue = obj[key]?.toString()?.toLowerCase() ?? '';
-        const matchesSelectedOption = key === selectedOption || !selectedOption;
-        const matchesSearchText = lowerCaseValue.includes(lowerCaseSearchText);
-        if (matchesSelectedOption && matchesSearchText) {
-          return true;
-        }
-      }
-      return false;
+
+
+  filtredId: any;
+  filtredName: any;
+  filtredQnt: any;
+  filtredDepot: any;
+  filtredTva: any;
+  filtredPuh: any;
+  filtredPuttc: any;
+  filtredPaht: any;
+  filtredPattc: any;
+
+  filter() {
+    this.filtredData = this.databs.filter((element: any) => {
+      const idMatches = !this.filtredId || element.id.toString().includes(this.filtredId);
+      const nameMatches = !this.filtredName || element.NomProduct.includes(this.filtredName);
+      const qntMatches = !this.filtredQnt || element.Qnt.toString().includes(this.filtredQnt);
+      const depotMatches = !this.filtredDepot || element.depot.includes(this.filtredDepot);
+      const tvaMatches = !this.filtredTva || element.TVA.includes(this.filtredTva);
+      const puhMatches = !this.filtredPuh || element.PrixVendHT.includes(this.filtredPuh);
+      const puttcMatches = !this.filtredPuttc || element.PrixVendTTC.includes(this.filtredPuttc);
+      const puahtMatches = !this.filtredPaht || element.PrixAchatHT.includes(this.filtredPaht);
+      const puattcMatches = !this.filtredPattc || element.PrixAchatTTC.includes(this.filtredPattc);
+
+      return idMatches && nameMatches && qntMatches && depotMatches && tvaMatches
+        && puahtMatches && puhMatches && puttcMatches && puattcMatches;
     });
   }
 
-convertirNombre(valeur: any) {
-  const nombre = Number(valeur); // Convertit la valeur en nombre à virgule flottante
-  if (isNaN(nombre)) { // Vérifie si la valeur n'est pas un nombre valide
-    return valeur; // Si la valeur n'est pas un nombre valide, renvoie la valeur d'origine sans modification
-  } else if (nombre % 1 === 0) { // Vérifie si la valeur est un nombre entier
-    return nombre.toString(); // Si la valeur est un nombre entier, renvoie la valeur en tant que chaîne de caractères sans décimales
-  } else {
-    return nombre.toFixed(2).replace(/\.?0+$/, ''); // Supprime les zéros inutiles après la virgule et renvoie la valeur en tant que chaîne de caractères
-  }
-}
-  
+
+
+
 }
 
 

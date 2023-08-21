@@ -6,7 +6,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { GpsViewComponent } from './gps-view/gps-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,6 +26,11 @@ import { MatDateFormats, MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE, 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AppSearchComponent } from './app-search/app-search.component';
+import { Error404Component } from './error404/error404.component';
+
+
+
 
 
 export const MY_FORMAT: MatDateFormats = {
@@ -48,7 +52,6 @@ export const MY_FORMAT: MatDateFormats = {
     SidebarComponent,
     GpsViewComponent,
     NavbarComponent,
-    IndexComponent,
     DeleteComponent,
     AddComponent,
     LoginComponent,
@@ -59,6 +62,10 @@ export const MY_FORMAT: MatDateFormats = {
     ListDesContenuDevisComponent,
     AddDevisComponent,
     ListDialogComponent,
+    AppSearchComponent,
+    Error404Component,
+
+    
  
     
     

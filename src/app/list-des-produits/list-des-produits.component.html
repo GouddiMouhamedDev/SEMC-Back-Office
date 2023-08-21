@@ -1,42 +1,24 @@
-
-
-
 <table class="table table-hover table-striped custom-table"  >
-
     <thead class="sticky-thead  ">
       
       <tr> 
         
-        <th>ID</th>
-        <th>Nom</th>
-        <th>QNT</th>
-        <th>Dépôt</th>
-        <th>TVA</th>
-        <th>Prix de vend HT</th>
-        <th>Prix de vend TTC</th>
-        <th>Prix d'achat HT</th>
-        <th>Prix d'achat TTC</th>
-        <th> <button class="pointer btn btn-primary button-hover input" (click)="openAddDialog()">ajouter</button>
-          <select [(ngModel)]="selectedOption" (change)="filterData(selectedOption,searchText)" class=" pointer btn btn-primary input"name="" style="width: 100px;">
-            <option value="id">ID</option>
-            <option value="Nom" selected>Nom</option>
-            <option value="Qnt">QNT</option>
-            <option value="TVA">TVA</option>
-            <option value="PrixVendHT">P.HT</option>
-            <option value="PrixVendTTC">P.TTC</option>
-            <option value="PrixAchatHT">P.HT</option>
-            <option value="PrixAchatTTC">P.TTC</option>
-          
-          </select> 
-          <input   value="" name="search"placeholder="Recherche" class="btn btn-primary blue-placeholder input" type="text" name="" 
-            id="search" style="width: 110px;"[(ngModel)]="searchText" (input)="filterData(selectedOption,searchText)">
-          </th>
+        <th><input class="form-control" type="text" name="idFilter" id="id-Filter" placeholder="ID" [(ngModel)]="filtredId" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="Nom-Filter" id="Nom-Filter" placeholder="Nom" [(ngModel)]="filtredName" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="QNT-Filter" id="QNT-Filter" placeholder="QNT" [(ngModel)]="filtredQnt" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="Depot-Filter" id="Depot-Filter" placeholder="Dépôt" [(ngModel)]="filtredDepot" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="TVA-Filter" id="TVA-Filter" placeholder="TVA" [(ngModel)]="filtredTva" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="PUH-Filter" id="PUH-Filter" placeholder="Prix de vend HT" [(ngModel)]="filtredPuh" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="PUTTC-Filter" id="PUTTC-Filter" placeholder="Prix de vend HT"[(ngModel)]="filtredPuttc" (keyup)="filter()" ></th>
+        <th><input class="form-control" type="text" name="PUAHT-Filter" id="PUAHT-Filter" placeholder="Prix d'achat HT"[(ngModel)]="filtredPaht" (keyup)="filter()"></th>
+        <th><input class="form-control" type="text" name="PUATTC-Filter" id="PUATTC-Filter" placeholder="Prix d'achat TTC"[(ngModel)]="filtredPattc" (keyup)="filter()"></th>
+        <th><button class="pointer btn btn-primary button-hover input" (click)="openAddDialog()">ajouter</button></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of databs" >
+      <tr *ngFor="let item of filtredData" >
         <td><b>{{ item.id }}</b></td>
-        <td><b>{{ item.NomProduct }}</b></td>
+        <td><b>{{ item.NomProduct}}</b></td>
         <td><b>{{ item.Qnt }}</b></td>
         <td><b>{{ item.depot }}</b></td>
         <td><b>{{ item.TVA }}%</b></td>
