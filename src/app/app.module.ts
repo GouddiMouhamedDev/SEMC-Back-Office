@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ListDesProduitsComponent } from './list-des-produits/list-des-produits.component';
+import { ListDesProduitsComponent } from './listDesProduits/listDesProduits.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { GpsViewComponent } from './gps-view/gps-view.component';
+import { GpsViewComponent } from './gpsView/gpsView.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,18 +16,19 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EditComponent } from './edit/edit.component';
 import { RegisterokComponent } from './registerok/registerok.component';
-import { ListDesDevisComponent } from './list-des-devis/list-des-devis.component';
-import { ListDesContenuDevisComponent } from './list-des-contenu-devis/list-des-contenu-devis.component';
-import { AddDevisComponent } from './add-devis/add-devis.component';
-import { ListDialogComponent } from './list-dialog/list-dialog.component';
+import { ListDesDevisComponent } from './listDesDevis/listDesDevis.component';
+import { ListDesContenuDevisComponent } from './listDesContenuDevis/listDesContenuDevis.component';
+import { AddDevisComponent } from './addDevis/addDevis.component';
+import { ListDialogComponent } from './listDialog/listDialog.component';
 import {MatIconModule} from '@angular/material/icon'
 import {MatCardModule} from '@angular/material/card';
 import { MatDateFormats, MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS  } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AppSearchComponent } from './app-search/app-search.component';
+import { AppSearchComponent } from './appSearch/appSearch.component';
 import { Error404Component } from './error404/error404.component';
+
 
 
 

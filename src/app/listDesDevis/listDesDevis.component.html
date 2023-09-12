@@ -1,0 +1,41 @@
+<table class="table table-hover table-striped custom-table">
+
+    <thead class="sticky-thead  ">
+
+        <tr>
+
+            <th>Num Devis</th>
+            <th>Date</th>
+            <th>ID Clien</th>
+            <th>Mt Total TTC</th> 
+            <th> <button class="pointer btn btn-primary button-hover input" routerLink="/adddevis">ajouter</button>
+                <select class=" pointer btn btn-primary input" name="" style="width: 100px;">
+                    <option value="">ID</option>
+                    <option value="" selected>Num Devis</option>
+                    <option value="">ID Clien</option>
+                    <option value="">Date</option>
+                </select>
+                <input value="" name="search" placeholder="Recherche" class="btn btn-primary blue-placeholder input"
+                    type="text" name="" id="search" style="width: 110px;">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of constDataDevis">
+            <td><b>{{ item.NumDevis}}</b></td>
+            <td><b>{{ item.dateDevis}}</b></td>
+            <td><b>{{ item.idclien}}</b></td>
+            <td><b>{{getMtTotalTTC(item.NumDevis)}}</b></td>
+            
+            <td>
+                <button class="pointer btn btn-default input " type="button">Ouvrir</button>
+                <button class="pointer btn btn-success input" type="button">Modifier</button>
+                <button class="pointer btn btn-danger input" type="button">Suprimer</button>
+               
+
+            </td>
+
+
+        </tr>
+    </tbody>
+</table>
